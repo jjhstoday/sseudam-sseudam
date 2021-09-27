@@ -1,0 +1,17 @@
+{
+  "name": "sseudam-sseudam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jjhstoday/sseudam-sseudam.git",
+  "author": "jjhstoday <jjh.s.today@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client start",
+    "server": "yarn workspace server start"
+  }
+}
