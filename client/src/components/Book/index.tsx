@@ -11,8 +11,6 @@ export interface BookProps {
   };
 }
 const Book: FC<BookProps> = ({ book }) => {
-  console.log(book.image);
-
   return (
     <Li key={book.id}>
       <img src={book.image} alt={book.title} />
