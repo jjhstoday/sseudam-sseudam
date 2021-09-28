@@ -3,7 +3,7 @@ import { lightPalette } from 'styles';
 
 export const FooterContainer = styled.div`
   text-align: center;
-  padding: 2rem;
+  padding-bottom: 3rem;
 
   p {
     font-family: GowunBatang-Regular;
