@@ -13,9 +13,9 @@ const sentenceSchema = gql`
   }
 
   extend type Mutation {
-    createSentence(text: String!, id: ID!): Sentence!
-    updateSentence(id: ID!, text: String!, bookId: ID!): Sentence!
-    deleteSentence(id: ID!, bookId: ID!): ID!
+    createSentence(text: String!, bookId: ID!): Sentence!
+    updateSentence(id: ID!, text: String!): Sentence!
+    deleteSentence(id: ID!): ID!
   }
 `;
 

@@ -33,7 +33,10 @@ const bookResolver = {
     }
   },
   Book: {
-    sentence: (book, args, { db }) => db.sentences[book.id]
+    sentences: (book, args, { db }) => {
+      const newStcs = [...db.sentences];
+      return newStcs.filter(stc => stc.bookId === book.id);
+    }
   }
 };
 

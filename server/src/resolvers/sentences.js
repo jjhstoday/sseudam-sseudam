@@ -20,7 +20,7 @@ const stcResolver = {
         bookId
       };
       db.sentences.unshift(newStc);
-      setBooks(db.sentences);
+      setStcs(db.sentences);
       return newStc;
     },
     updateSentence: (parent, { id, text }, { db }) => {

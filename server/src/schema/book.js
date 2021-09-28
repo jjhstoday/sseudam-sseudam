@@ -6,7 +6,7 @@ const bookSchema = gql`
     title: String!
     author: String!
     image: String
-    sentence: Sentence!
+    sentences: [Sentence]
   }
 
   extend type Query {
