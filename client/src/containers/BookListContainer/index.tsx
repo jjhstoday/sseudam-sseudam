@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Book from 'components/Book';
 import { Ul } from './styles';
 
-export default function BookList() {
+export default function BookListContainer() {
   const [books, setBooks] = useState([]);
 
   const getServerSideData = async () => {
