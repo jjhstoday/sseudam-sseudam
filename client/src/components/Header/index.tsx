@@ -1,12 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { HeaderContainer } from './styles';
+import CloseButton from 'components/CloseButton';
+import ConfirmButton from 'components/ConfirmButton';
+import React, { FC } from 'react';
+import { HeaderContainer, Divider } from './styles';
 
-export default function Header() {
+interface Props {
+  title: string;
+}
+
+const Header: FC<Props> = ({ title }) => {
   return (
     <HeaderContainer>
-      <Link to='/'>쓰담쓰담</Link>
-      <div></div>
+      <div>
+        {title !== '쓰담쓰담' && <CloseButton />}
+        <span>{title}</span>
+        {title !== '쓰담쓰담' && <ConfirmButton />}
+      </div>
+      <Divider />
     </HeaderContainer>
   );
-}
+};
+
+export default Header;
