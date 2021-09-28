@@ -3,7 +3,7 @@ import { fontSizeKit, lightPalette } from 'styles';
 
 export const HeaderContainer = styled.div`
   text-align: center;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
 
   a {
     font-size: ${fontSizeKit.large};
@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
   }
 
   div {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     height: 1px;
     background-image: linear-gradient(
       to right,
