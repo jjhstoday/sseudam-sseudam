@@ -10,6 +10,7 @@ export const HeaderContainer = styled.div`
   transform: translateX(-50%);
   background: ${lightPalette.themePrimary};
   width: 100vw;
+  z-index: 1;
 
   div {
     display: flex;
