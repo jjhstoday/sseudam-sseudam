@@ -8,10 +8,10 @@ import React, {
 import { DeleteIcon, Container } from './styles';
 
 interface Props {
-  onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
+  onKeyPress: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const SearchInput: FC<Props> = ({ onKeyDown }) => {
+const SearchInput: FC<Props> = ({ onKeyPress }) => {
   const [text, setText] = useState('');
   const inputEl = useRef<HTMLInputElement>(null);
 
@@ -33,7 +33,7 @@ const SearchInput: FC<Props> = ({ onKeyDown }) => {
         placeholder='어떤 책을 읽으셨나요?'
         value={text}
         onChange={onChange}
-        onKeyDown={onKeyDown}
+        onKeyPress={onKeyPress}
         ref={inputEl}
         autoFocus
       />
