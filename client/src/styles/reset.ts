@@ -113,7 +113,7 @@ li {
 }
 
 body {
-  font-family: 'Nanum Gothic', sans-serif, -apple-system, BlinkMacSystemFont,
+  font-family: GowunDodum-Regular, 'Nanum Gothic', sans-serif, -apple-system, BlinkMacSystemFont,
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue';
   line-height: 1;
@@ -177,9 +177,16 @@ input {
   vertical-align: top;
   appearance: none;
   border-radius: 0;
-  /* TODO: */
-  font-family: 'Nanum Gothic', 나눔고딕, 'Nanum Gothic', '맑은 고딕', HelveticaNeue,
-    DroidSans, Sans-serif, Helvetica;
+}
+input::-ms-clear,
+input::-ms-reveal{
+	display:none;width:0;height:0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+	display:none;
 }
 
 /* 웹폰트 CSS */
@@ -187,6 +194,28 @@ input {
 @font-face {
     font-family: 'GowunBatang-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'designhouseOTFLight00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/designhouseOTFLight00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 웹 애플리케이션 전체 글씨체 */
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MapoFlowerIsland';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

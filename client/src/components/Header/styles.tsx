@@ -21,7 +21,7 @@ export const HeaderContainer = styled.div`
 
   span {
     font-size: 2.5rem;
-    font-family: GowunBatang-Regular;
+    font-family: designhouseOTFLight00;
   }
 
   ${Divider} {
