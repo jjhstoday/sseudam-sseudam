@@ -8,7 +8,9 @@ export default function Home() {
   return (
     <>
       <Header title='쓰담쓰담' />
-      <BookListContainer />
+      <section>
+        <BookListContainer />
+      </section>
       <AddButton moveToPage='/postingBook' />
       <Footer />
     </>
