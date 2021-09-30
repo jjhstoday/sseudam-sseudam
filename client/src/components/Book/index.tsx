@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { Li } from './styles';
 
 export interface BookProps {
@@ -11,9 +12,25 @@ export interface BookProps {
   };
 }
 const Book: FC<BookProps> = ({ book }) => {
+  const trimTitle = (title: string) => {
+    const trimedTitle = title.replace(/\s+/g, '');
+    return trimedTitle;
+  };
+
   return (
     <Li key={book.id}>
-      <img src={book.image} alt={book.title} />
+      <Link
+        to={{
+          pathname: `/book/${trimTitle(book.title)}`,
+          state: {
+            id: book.id,
+            title: book.title,
+            sentences: book.sentences
+          }
+        }}
+      >
+        <img src={book.image} alt={book.title} />
+      </Link>
     </Li>
   );
 };
