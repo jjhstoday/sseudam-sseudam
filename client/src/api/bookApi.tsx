@@ -7,7 +7,7 @@ export const getSearchBook = async (title: string) => {
     const res = await axios.get(URL, {
       params: title
     });
-    console.log(res);
+    return res.data.items;
   } catch (err) {
     console.error(err);
   }

@@ -26,7 +26,7 @@ export const Ul = styled.ul`
       flex-flow: column;
       margin-left: 2rem;
       justify-content: center;
-      width: 250px;
+      width: 230px;
 
       span {
         font-size: ${fontSizeKit.small};
@@ -36,7 +36,7 @@ export const Ul = styled.ul`
 
       p {
         display: block;
-        width: 90%;
+        width: 95%;
         font-size: ${fontSizeKit.medium};
         white-space: nowrap;
         overflow: hidden;

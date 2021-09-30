@@ -5,12 +5,12 @@ import { lightPalette } from 'styles';
 export const OffRadioIcon = styled(IoMdRadioButtonOff)`
   width: 20px;
   height: 20px;
-  color: ${lightPalette.themeSecondaryFont};
-  opacity: 0.6;
+  color: ${lightPalette.themeSecondary};
+  opacity: 0.4;
 `;
 export const OnRadioIcon = styled(IoMdRadioButtonOn)`
   width: 20px;
   height: 20px;
-  color: ${lightPalette.themeSecondaryFont};
+  color: ${lightPalette.themeSecondary};
   opacity: 0.6;
 `;
