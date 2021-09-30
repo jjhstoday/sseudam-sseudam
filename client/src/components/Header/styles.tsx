@@ -3,7 +3,7 @@ import { lightPalette } from 'styles';
 
 export const InnerContainer = styled.div``;
 export const Divider = styled.div``;
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   left: 50%;
