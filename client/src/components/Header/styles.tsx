@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
   transform: translateX(-50%);
   background: ${lightPalette.themePrimary};
   width: 100vw;
-  z-index: 1;
+  z-index: 3;
 
   h2 {
     text-align: center;
