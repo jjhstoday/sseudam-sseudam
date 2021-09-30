@@ -1,9 +1,17 @@
 import { getSearchBook } from 'api/bookApi';
-import Header from 'components/Header';
+import CloseButton from 'components/CloseButton';
+import ConfirmButton from 'components/ConfirmButton';
 import SearchedBookList from 'components/SearchedBookList';
 import SearchInput from 'components/SearchInput';
-import React, { KeyboardEventHandler, useState } from 'react';
+import { fetcher } from 'queryClient';
+import React, {
+  MouseEventHandler,
+  KeyboardEventHandler,
+  useState
+} from 'react';
 import { Container } from './styles';
+import { CREATE_BOOK } from 'graphql/book';
+import { useHistory } from 'react-router-dom';
 
 interface SearchedBook {
   author: string;
@@ -39,6 +47,13 @@ export default function SearchingBookContainer() {
     { id: '', title: '', author: '', image: '', isChecked: false }
   ]);
   const [isFail, setIsFail] = useState(false);
+  const [selectedBook, setSelectedBook] = useState({
+    id: '',
+    title: '',
+    author: '',
+    image: ''
+  });
+  const history = useHistory();
 
   const onKeyPress: KeyboardEventHandler<HTMLInputElement> = async e => {
     const element = e.currentTarget as HTMLInputElement;
@@ -66,11 +81,36 @@ export default function SearchingBookContainer() {
         : { ...old, isChecked: false }
     );
     setSearchedBook(newData);
+
+    const newSelectedBook = newData.filter(book => book.id === id);
+    getSelectedBook(newSelectedBook);
+  };
+
+  const getSelectedBook = (
+    newSelectedBook: Array<{
+      id: string;
+      title: string;
+      author: string;
+      image: string;
+    }>
+  ) => {
+    const { id, title, author, image } = newSelectedBook[0];
+    if (selectedBook.id === id)
+      setSelectedBook({ id: '', title: '', author: '', image: '' });
+    else setSelectedBook({ id, title, author, image });
+  };
+
+  const onSubmit: MouseEventHandler<HTMLButtonElement> = async () => {
+    if (!selectedBook.id) return null;
+    const { title, author, image } = selectedBook;
+    await fetcher(CREATE_BOOK, { title, author, image });
+    history.push('/');
   };
 
   return (
     <>
-      <Header title='책 등록' />
+      <CloseButton />
+      <ConfirmButton onClick={onSubmit} readyToSubmit={!!selectedBook.id} />
       <Container>
         <SearchInput onKeyPress={onKeyPress} />
         <SearchedBookList

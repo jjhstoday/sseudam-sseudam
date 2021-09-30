@@ -1,9 +1,12 @@
 import styled from 'styled-components';
-import { IoClose } from 'react-icons/io5';
+import { FiCheck } from 'react-icons/fi';
 import { lightPalette } from 'styles';
 
-export const CloseIcon = styled(IoClose)``;
-export const Button = styled.button`
+interface Props {
+  $readyToSubmit: boolean;
+}
+export const ConfirmIcon = styled(FiCheck)``;
+export const Button = styled.button<Props>`
   width: 40px;
   height: 40px;
   background: transparent;
@@ -11,11 +14,12 @@ export const Button = styled.button`
   position: fixed;
   top: 47px;
   z-index: 2;
-  left: 8%;
+  right: 8%;
 
-  ${CloseIcon} {
+  ${ConfirmIcon} {
     width: 100%;
     height: 100%;
     color: ${lightPalette.themeSecondaryFont};
+    opacity: ${props => (props.$readyToSubmit ? '1' : '0.2')};
   }
 `;

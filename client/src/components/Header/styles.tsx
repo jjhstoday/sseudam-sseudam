@@ -12,15 +12,9 @@ export const HeaderContainer = styled.header`
   width: 100vw;
   z-index: 1;
 
-  div {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    height: 135px;
-  }
-
-  span {
+  h2 {
+    text-align: center;
+    line-height: 135px;
     font-size: 2.5rem;
     font-family: designhouseOTFLight00;
   }
