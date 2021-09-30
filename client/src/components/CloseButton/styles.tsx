@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { IoClose } from 'react-icons/io5';
+import { IoCloseOutline } from 'react-icons/io5';
 import { lightPalette } from 'styles';
 
-export const CloseIcon = styled(IoClose)``;
+export const CloseIcon = styled(IoCloseOutline)``;
 export const Button = styled.button`
   width: 40px;
   height: 40px;
