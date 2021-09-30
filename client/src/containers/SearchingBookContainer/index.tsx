@@ -38,6 +38,7 @@ export default function SearchingBookContainer() {
   const [searchedBook, setSearchedBook] = useState([
     { id: '', title: '', author: '', image: '', isChecked: false }
   ]);
+  const [isFail, setIsFail] = useState(false);
 
   const onKeyPress: KeyboardEventHandler<HTMLInputElement> = async e => {
     const element = e.currentTarget as HTMLInputElement;
@@ -55,6 +56,7 @@ export default function SearchingBookContainer() {
       };
     });
     setSearchedBook(newRes);
+    newRes.length ? setIsFail(false) : setIsFail(true);
   };
 
   const onClick = (id: string) => {
@@ -71,7 +73,11 @@ export default function SearchingBookContainer() {
       <Header title='책 등록' />
       <Container>
         <SearchInput onKeyPress={onKeyPress} />
-        <SearchedBookList searchedBook={searchedBook} onClick={onClick} />
+        <SearchedBookList
+          searchedBook={searchedBook}
+          onClick={onClick}
+          isFail={isFail}
+        />
       </Container>
     </>
   );

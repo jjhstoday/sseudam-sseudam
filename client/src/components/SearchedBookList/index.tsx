@@ -1,5 +1,6 @@
+import Message from 'components/Message';
 import SearchedBook from 'components/SearchedBook';
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import React, { FC } from 'react';
 import { Ul } from './styles';
 
 interface Props {
@@ -11,9 +12,11 @@ interface Props {
     isChecked: boolean;
   }>;
   onClick: (id: string) => void;
+  isFail: boolean;
 }
 
-const SearchedBookList: FC<Props> = ({ searchedBook, onClick }) => {
+const SearchedBookList: FC<Props> = ({ searchedBook, onClick, isFail }) => {
+  if (isFail) return <Message text='검색한 책이 존재하지 않습니다...' />;
   return (
     <Ul>
       {searchedBook.map(({ id, title, author, image, isChecked }) => (

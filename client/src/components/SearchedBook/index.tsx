@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, useState } from 'react';
+import React, { FC } from 'react';
 import { OffRadioIcon, OnRadioIcon } from './styles';
 
 interface Props {
