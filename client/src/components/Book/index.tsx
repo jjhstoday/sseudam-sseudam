@@ -24,7 +24,7 @@ const Book: FC<BookProps> = ({ book }) => {
           pathname: `/book/${trimTitle(book.title)}`,
           state: {
             id: book.id,
-            title: book.title,
+            title: book.title.trim(),
             sentences: book.sentences
           }
         }}
