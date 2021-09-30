@@ -13,7 +13,7 @@ export const Button = styled.button<Props>`
   border: none;
   position: fixed;
   top: 47px;
-  z-index: 2;
+  z-index: 3;
   right: 8%;
 
   ${ConfirmIcon} {

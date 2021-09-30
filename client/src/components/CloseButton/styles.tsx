@@ -10,7 +10,7 @@ export const Button = styled.button`
   border: none;
   position: fixed;
   top: 47px;
-  z-index: 2;
+  z-index: 3;
   left: 8%;
 
   ${CloseIcon} {
