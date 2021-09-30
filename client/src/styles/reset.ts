@@ -124,7 +124,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.1rem;
   height: 100%;
-  min-height: 100vh;
   color: #404040;
 }
 
@@ -187,6 +186,10 @@ input::-webkit-search-cancel-button,
 input::-webkit-search-results-button,
 input::-webkit-search-results-decoration{
 	display:none;
+}
+
+section {
+  min-height: 70vh;
 }
 
 /* 웹폰트 CSS */
