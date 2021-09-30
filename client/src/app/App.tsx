@@ -13,11 +13,11 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/book/:bookId' component={Book} />
+        <Route exact path='/book/:bookId' component={Book} />
         <Route path='/postingBook' component={PostingBook} />
         <Route path='/book/:bookId/sentence/:sentenceId' component={Sentence} />
         <Route
-          path='/book/:bookId/sentence/postingSentence'
+          path='/book/:bookId/postingSentence'
           component={PostingSentence}
         />
       </Switch>
