@@ -3,6 +3,7 @@ import { fetcher } from 'queryClient';
 import React, { useEffect, useState } from 'react';
 import Book from 'components/Book';
 import { Ul } from './styles';
+import MyBookCount from 'components/MyBookCount';
 
 export default function BookListContainer() {
   const [books, setBooks] = useState([]);
@@ -19,10 +20,13 @@ export default function BookListContainer() {
   if (!books.length) return null;
 
   return (
-    <Ul>
-      {books.map(book => (
-        <Book book={book} />
-      ))}
-    </Ul>
+    <>
+      <MyBookCount count={books.length} />
+      <Ul>
+        {books.map(book => (
+          <Book book={book} />
+        ))}
+      </Ul>
+    </>
   );
 }
