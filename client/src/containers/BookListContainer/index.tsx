@@ -3,7 +3,7 @@ import { fetcher } from 'queryClient';
 import React, { useEffect, useState } from 'react';
 import Book from 'components/Book';
 import { Ul } from './styles';
-import MyBookCount from 'components/MyBookCount';
+import MyCount from 'components/MyCount';
 
 interface Books {
   id: string;
@@ -28,7 +28,7 @@ export default function BookListContainer() {
 
   return (
     <>
-      <MyBookCount count={books.length} />
+      <MyCount count={books.length} title='나의 책장' />
       <Ul>
         {books.map(book => (
           <Book key={book.id} book={book} />

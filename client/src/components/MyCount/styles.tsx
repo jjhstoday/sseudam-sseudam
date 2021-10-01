@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { fontSizeKit, lightPalette } from 'styles';
 import { FaBook } from 'react-icons/fa';
+import { ImHeart } from 'react-icons/im';
 
 export const BookIcon = styled(FaBook)``;
+export const HeartIcon = styled(ImHeart)``;
 export const Span = styled.span`
   font-size: ${fontSizeKit.small};
   color: ${lightPalette.themePrimaryFont};
@@ -13,7 +15,7 @@ export const Span = styled.span`
   position: absolute;
   top: 160px;
 
-  ${BookIcon} {
+  ${BookIcon}, ${HeartIcon} {
     color: ${lightPalette.themePrimaryFont};
     margin-right: 0.6rem;
   }
