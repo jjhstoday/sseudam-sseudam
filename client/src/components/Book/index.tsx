@@ -4,8 +4,8 @@ import { Li } from './styles';
 
 export interface BookProps {
   book: {
-    title: string;
     id: string;
+    title: string;
     author: string;
     image: string;
     sentences?: Array<{ id: string; bookId: string; text: string }>;
@@ -18,7 +18,7 @@ const Book: FC<BookProps> = ({ book }) => {
   };
 
   return (
-    <Li key={book.id}>
+    <Li>
       <Link
         to={{
           pathname: `/book/${trimTitle(book.title)}`,
