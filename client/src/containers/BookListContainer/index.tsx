@@ -5,8 +5,15 @@ import Book from 'components/Book';
 import { Ul } from './styles';
 import MyBookCount from 'components/MyBookCount';
 
+interface Books {
+  id: string;
+  title: string;
+  author: string;
+  image: string;
+  sentences?: Array<{ id: string; bookId: string; text: string }>;
+}
 export default function BookListContainer() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Books[]>([]);
 
   const getServerSideData = async () => {
     const { books: sBooks } = await fetcher(GET_BOOKS);
@@ -24,7 +31,7 @@ export default function BookListContainer() {
       <MyBookCount count={books.length} />
       <Ul>
         {books.map(book => (
-          <Book book={book} />
+          <Book key={book.id} book={book} />
         ))}
       </Ul>
     </>
