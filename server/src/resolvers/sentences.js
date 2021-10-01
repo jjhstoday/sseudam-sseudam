@@ -5,8 +5,8 @@ const setStcs = data => writeDB('sentences', data);
 
 const stcResolver = {
   Query: {
-    sentences: (parent, args, { db }) => {
-      return db.sentences;
+    sentences: (parent, { bookId = '' }, { db }) => {
+      return db.sentences.filter(stc => stc?.bookId === bookId) || [];
     },
     sentence: (parent, { id = '' }, { db }) => {
       return db.sentences.find(stc => stc.id === id);
