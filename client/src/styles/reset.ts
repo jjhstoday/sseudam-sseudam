@@ -189,7 +189,7 @@ input::-webkit-search-results-decoration{
 }
 
 section {
-  min-height: 70vh;
+  min-height: 67.4vh;
 }
 
 /* 웹폰트 CSS */
