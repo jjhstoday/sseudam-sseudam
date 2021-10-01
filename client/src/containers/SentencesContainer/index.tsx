@@ -7,6 +7,7 @@ import { fetcher } from 'queryClient';
 import { useHistory } from 'react-router-dom';
 import Sentence from 'components/Sentence';
 import { GET_SENTENCES } from 'graphql/sentence';
+import MyCount from 'components/MyCount';
 
 interface Props {
   id: string;
@@ -42,6 +43,7 @@ const SentencesContainer: FC<Props> = ({ id }) => {
     <>
       <CloseButton />
       <DeleteButton id={id} onClick={onClick} />
+      <MyCount count={stcs.length} title='나의 기록' />
       <Ul>
         {stcs.length &&
           stcs.map(stc => <Sentence key={stc.id} text={stc.text} />)}
