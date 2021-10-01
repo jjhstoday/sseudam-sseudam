@@ -1,6 +1,6 @@
 import CloseButton from 'components/CloseButton';
 import React, { FC, useEffect, useState } from 'react';
-import { Ul } from './styles';
+import { Ul, P } from './styles';
 import DeleteButton from 'components/DeleteButton';
 import { DELETE_BOOK } from 'graphql/book';
 import { fetcher } from 'queryClient';
@@ -8,9 +8,12 @@ import { useHistory } from 'react-router-dom';
 import Sentence from 'components/Sentence';
 import { GET_SENTENCES } from 'graphql/sentence';
 import MyCount from 'components/MyCount';
+import HappyFace from 'assets/icon/happy-face.png';
 
 interface Props {
   id: string;
+  trimedBookId: string;
+  title: string;
 }
 
 interface Sentences {
@@ -19,7 +22,7 @@ interface Sentences {
   bookId: string;
 }
 
-const SentencesContainer: FC<Props> = ({ id }) => {
+const SentenceListContainer: FC<Props> = ({ id, trimedBookId, title }) => {
   const history = useHistory();
   const [stcs, setStcs] = useState<Sentences[]>([]);
 
@@ -37,19 +40,32 @@ const SentencesContainer: FC<Props> = ({ id }) => {
     history.push('/');
   };
 
-  if (!stcs.length) return null;
-
   return (
     <>
       <CloseButton />
       <DeleteButton id={id} onClick={onClick} />
       <MyCount count={stcs.length} title='나의 기록' />
       <Ul>
-        {stcs.length &&
-          stcs.map(stc => <Sentence key={stc.id} text={stc.text} />)}
+        {stcs.length > 0 ? (
+          stcs.map(stc => (
+            <Sentence
+              key={stc.id}
+              text={stc.text}
+              id={stc.id}
+              bookId={id}
+              trimedBookId={trimedBookId}
+              title={title}
+            />
+          ))
+        ) : (
+          <P>
+            나만의 첫 문장을 기록해보세요.
+            <img src={HappyFace} alt='happy-face' />
+          </P>
+        )}
       </Ul>
     </>
   );
 };
 
-export default SentencesContainer;
+export default SentenceListContainer;
