@@ -17,7 +17,6 @@ const CreateSentenceContainer: FC<Props> = ({ id }) => {
     if (!text.trim()) return null;
     const trimedText = text.trim();
     await fetcher(CREATE_SENTENCE, { text: trimedText, bookId: id });
-    console.log('submit..');
     history.goBack();
   };
 

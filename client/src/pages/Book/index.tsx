@@ -3,23 +3,12 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import SentenceListContainer from 'containers/SentenceListContainer';
 import React, { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-
-interface StateType {
-  id: string;
-  title: string;
-  sentences: Array<{ id?: string; bookId?: string; text?: string }>;
-}
-
-interface ParamsType {
-  bookId: string;
-  sentenceId?: string;
-}
+import { useLocation } from 'react-router-dom';
+import { StateType } from 'pages/Sentence';
 
 const Book = () => {
   const { state } = useLocation<StateType>();
-  const { bookId } = useParams<ParamsType>();
-  const { id, title } = state;
+  const { bookId, title, trimedBookId } = state;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,9 +18,16 @@ const Book = () => {
     <>
       <Header title={title} />
       <section>
-        <SentenceListContainer id={id} trimedBookId={bookId} title={title} />
+        <SentenceListContainer
+          bookId={bookId}
+          trimedBookId={trimedBookId}
+          title={title}
+        />
       </section>
-      <AddButton moveToPage={`/book/${bookId}/postingSentence`} id={id} />
+      <AddButton
+        moveToPage={`/book/${trimedBookId}/postingSentence`}
+        id={bookId}
+      />
       <Footer />
     </>
   );

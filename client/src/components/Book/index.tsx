@@ -23,9 +23,11 @@ const Book: FC<BookProps> = ({ book }) => {
         to={{
           pathname: `/book/${trimTitle(book.title)}`,
           state: {
-            id: book.id,
+            id: '',
+            bookId: book.id,
+            text: '',
             title: book.title.trim(),
-            sentences: book.sentences
+            trimedBookId: trimTitle(book.title)
           }
         }}
       >

@@ -1,12 +1,9 @@
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import CreateSentenceContainer from 'containers/CreateSentenceContainer';
+import { StateType } from 'pages/Sentence';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-interface StateType {
-  id: string;
-}
 
 export default function PostingSentence() {
   const { state } = useLocation<StateType>();

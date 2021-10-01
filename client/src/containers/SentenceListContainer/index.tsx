@@ -11,7 +11,7 @@ import MyCount from 'components/MyCount';
 import HappyFace from 'assets/icon/happy-face.png';
 
 interface Props {
-  id: string;
+  bookId: string;
   trimedBookId: string;
   title: string;
 }
@@ -22,12 +22,12 @@ interface Sentences {
   bookId: string;
 }
 
-const SentenceListContainer: FC<Props> = ({ id, trimedBookId, title }) => {
+const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   const history = useHistory();
   const [stcs, setStcs] = useState<Sentences[]>([]);
 
   const getServerSideData = async () => {
-    const { sentences: sStcs } = await fetcher(GET_SENTENCES, { bookId: id });
+    const { sentences: sStcs } = await fetcher(GET_SENTENCES, { bookId });
     setStcs(sStcs);
   };
 
@@ -35,15 +35,15 @@ const SentenceListContainer: FC<Props> = ({ id, trimedBookId, title }) => {
     getServerSideData();
   }, []);
 
-  const onClick = async (id: string) => {
-    await fetcher(DELETE_BOOK, { id });
+  const onClick = async (bookId: string) => {
+    await fetcher(DELETE_BOOK, { bookId });
     history.push('/');
   };
 
   return (
     <>
       <CloseButton />
-      <DeleteButton id={id} onClick={onClick} />
+      <DeleteButton id={bookId} onClick={onClick} />
       <MyCount count={stcs.length} title='나의 기록' />
       <Ul>
         {stcs.length > 0 ? (
@@ -52,7 +52,7 @@ const SentenceListContainer: FC<Props> = ({ id, trimedBookId, title }) => {
               key={stc.id}
               text={stc.text}
               id={stc.id}
-              bookId={id}
+              bookId={bookId}
               trimedBookId={trimedBookId}
               title={title}
             />

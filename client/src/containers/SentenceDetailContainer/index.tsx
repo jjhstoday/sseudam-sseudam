@@ -12,20 +12,54 @@ interface Props {
   bookId: string;
   text: string;
   title: string;
+  trimedBookId: string;
 }
 
-const SentenceDetailContainer: FC<Props> = ({ id, bookId, text, title }) => {
+const SentenceDetailContainer: FC<Props> = ({
+  id,
+  bookId,
+  text,
+  title,
+  trimedBookId
+}) => {
   const history = useHistory();
 
   const onClick = async (id: string) => {
     await fetcher(DELETE_SENTENCE, { id });
-    history.goBack();
+    history.push({
+      pathname: `/book/${trimedBookId}`,
+      state: {
+        id,
+        bookId,
+        text,
+        title,
+        trimedBookId
+      }
+    });
+  };
+
+  const onUpdate = async (id: string, text: string, trimedBookId: string) => {
+    history.push({
+      pathname: `/book/${trimedBookId}/editSentence`,
+      state: {
+        id,
+        bookId,
+        text,
+        title,
+        trimedBookId
+      }
+    });
   };
 
   return (
     <>
       <CloseButton />
-      <UpdateButton />
+      <UpdateButton
+        id={id}
+        text={text}
+        trimedBookId={trimedBookId}
+        onUpdate={onUpdate}
+      />
       <DeleteButton id={id} onClick={onClick} />
       <SentenceDetail title={title} text={text} />
     </>

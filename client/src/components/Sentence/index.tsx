@@ -15,7 +15,7 @@ const Sentence: FC<Props> = ({ text, id, bookId, trimedBookId, title }) => {
       <Link
         to={{
           pathname: `/book/${trimedBookId}/sentence/${id}`,
-          state: { text, id, bookId, title }
+          state: { text, id, bookId, title, trimedBookId }
         }}
       >
         <ClipIcon />
