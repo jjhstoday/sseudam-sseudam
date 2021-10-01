@@ -36,7 +36,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   }, []);
 
   const onClick = async (bookId: string) => {
-    await fetcher(DELETE_BOOK, { bookId });
+    await fetcher(DELETE_BOOK, { id: bookId });
     history.push('/');
   };
 
