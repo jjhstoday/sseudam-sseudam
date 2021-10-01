@@ -13,6 +13,8 @@ export const Li = styled.li`
   p {
     font-size: ${fontSizeKit.medium};
     color: ${lightPalette.themePrimaryFont};
+    line-height: 2.5rem;
+    white-space: pre-wrap;
   }
 
   &:after {
