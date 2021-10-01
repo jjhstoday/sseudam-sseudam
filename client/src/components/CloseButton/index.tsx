@@ -8,7 +8,11 @@ export default function CloseButton() {
   const { pathname } = location;
 
   const onClick = () => {
-    if (pathname.includes('book') && !pathname.includes('postingSentence')) {
+    if (
+      pathname.includes('book') &&
+      !pathname.includes('postingSentence') &&
+      !pathname.includes('sentence')
+    ) {
       history.push('/');
     } else history.goBack();
   };
