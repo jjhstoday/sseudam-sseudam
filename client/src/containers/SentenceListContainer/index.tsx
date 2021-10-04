@@ -29,6 +29,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   const intersecting = useInfiniteScroll(fetchMoreEl);
   const [hasNext, setHasNext] = useState(true);
   const [booksLength, setBooksLength] = useState(0);
+  const [isModal, setIsModal] = useState(false);
 
   const getServerSideData = async () => {
     const { sentences: sStcs } = await fetcher(GET_SENTENCES, {
@@ -59,13 +60,28 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   }, []);
 
   const onClick = async (bookId: string) => {
+    setIsModal(true);
+  };
+
+  const onDeleteCancel = () => {
+    setIsModal(false);
+  };
+
+  const onDeleteConfirm = async (bookId: string) => {
     await fetcher(DELETE_BOOK, { id: bookId });
     history.push('/');
   };
 
   return (
     <>
-      <ButtonsContainer pageName='needToDelete' id={bookId} onClick={onClick} />
+      <ButtonsContainer
+        pageName='needToDelete'
+        id={bookId}
+        onClick={onClick}
+        isModal={isModal}
+        onDeleteCancel={onDeleteCancel}
+        onDeleteConfirm={onDeleteConfirm}
+      />
       <MyCount count={booksLength} title='나의 기록' />
       {stcs.length > 0 ? (
         <Ul>

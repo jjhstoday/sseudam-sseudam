@@ -14,6 +14,9 @@ interface Props {
   text?: string;
   trimedBookId?: string;
   onUpdate?: (id: string, text: string, trimedBookId: string) => void;
+  isModal?: boolean;
+  onDeleteCancel?: () => void;
+  onDeleteConfirm?: (id: string) => void;
 }
 
 const ButtonsContainer: FC<Props> = ({
@@ -24,7 +27,10 @@ const ButtonsContainer: FC<Props> = ({
   text = '',
   trimedBookId = '',
   onUpdate = () => {},
-  onSubmit = () => {}
+  onSubmit = () => {},
+  isModal = false,
+  onDeleteCancel = () => {},
+  onDeleteConfirm = () => {}
 }) => {
   return (
     <Container>
@@ -33,7 +39,13 @@ const ButtonsContainer: FC<Props> = ({
         <ConfirmButton onSubmit={onSubmit} readyToSubmit={readyToSubmit} />
       )}
       {pageName === 'needToDelete' && (
-        <DeleteButton id={id} onClick={onClick} />
+        <DeleteButton
+          id={id}
+          onClick={onClick}
+          isModal={isModal}
+          onDeleteCancel={onDeleteCancel}
+          onDeleteConfirm={onDeleteConfirm}
+        />
       )}
       {pageName === 'needToUpdate' && (
         <>
