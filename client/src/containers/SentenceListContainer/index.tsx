@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Ul, P } from './styles';
+import { Ul } from './styles';
 import { DELETE_BOOK } from 'graphql/book';
 import { fetcher } from 'queryClient';
 import { useHistory } from 'react-router-dom';
 import Sentence from 'components/Sentence';
 import { GET_SENTENCES } from 'graphql/sentence';
 import MyCount from 'components/MyCount';
-import HappyFace from 'assets/icon/happy-face.png';
 import ButtonsContainer from 'containers/ButtonsContainer';
+import Message from 'components/Message';
 
 interface Props {
   bookId: string;
@@ -43,9 +43,9 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
     <>
       <ButtonsContainer pageName='needToDelete' id={bookId} onClick={onClick} />
       <MyCount count={stcs.length} title='나의 기록' />
-      <Ul>
-        {stcs.length > 0 ? (
-          stcs.map(stc => (
+      {stcs.length > 0 ? (
+        <Ul>
+          {stcs.map(stc => (
             <Sentence
               key={stc.id}
               text={stc.text}
@@ -54,14 +54,11 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
               trimedBookId={trimedBookId}
               title={title}
             />
-          ))
-        ) : (
-          <P>
-            나만의 첫 문장을 기록해보세요.
-            <img src={HappyFace} alt='happy-face' />
-          </P>
-        )}
-      </Ul>
+          ))}
+        </Ul>
+      ) : (
+        <Message text='나만의 첫 문장을 기록해보세요.' />
+      )}
     </>
   );
 };
