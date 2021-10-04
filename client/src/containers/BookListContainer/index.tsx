@@ -40,6 +40,7 @@ export default function BookListContainer() {
     const { books: sBooks } = await fetcher(GET_BOOKS, { cursor: 'all' });
     setBooksLength(sBooks.length);
   };
+
   useEffect(() => {
     getBooksLength();
   }, []);
@@ -56,7 +57,6 @@ export default function BookListContainer() {
       ) : (
         <Message text='나만의 첫 책을 등록해보세요.' />
       )}
-
       <div ref={fetchMoreEl}></div>
     </>
   );

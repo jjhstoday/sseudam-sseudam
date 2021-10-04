@@ -4,6 +4,7 @@ import {
   DefaultTheme
 } from 'styled-components';
 import { normalize } from 'polished';
+import { lightPalette } from './color';
 
 export const GlobalStyle: GlobalStyleComponent<
   {},
@@ -98,7 +99,6 @@ li {
   letter-spacing: inherit;
   user-select: none;
   font-size: 10px;
-  /* scroll-behavior: smooth; */
     
   &:not(input) {
     &:focus {
@@ -126,7 +126,7 @@ body {
   line-height: 1;
   margin: 0;
   padding: 0;
-  background: #f7f5f3;
+  background: ${lightPalette.themePrimary};
   z-index: -2;
   position: relative; 
 
@@ -134,7 +134,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.1rem;
   height: 100%;
-  color: #404040;
+  color: ${lightPalette.themeSecondaryFont};
   max-width: 600px;
   margin: 0 auto;
 }
@@ -166,7 +166,7 @@ a {
   font-size: 100%;
   text-decoration: none;
   vertical-align: baseline;
-  color: #404040;
+  color: ${lightPalette.themeSecondaryFont};
   background: transparent;
 
   
