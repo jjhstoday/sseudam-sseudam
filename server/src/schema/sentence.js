@@ -8,7 +8,7 @@ const sentenceSchema = gql`
   }
 
   extend type Query {
-    sentences(bookId: ID!): [Sentence]!
+    sentences(bookId: ID!, cursor: ID): [Sentence]!
     sentence(id: ID!): Sentence!
   }
 

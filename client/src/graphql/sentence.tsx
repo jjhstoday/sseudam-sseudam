@@ -1,8 +1,8 @@
 import { gql } from 'graphql-tag';
 
 export const GET_SENTENCES = gql`
-  query GET_SENTENCES($bookId: ID!) {
-    sentences(bookId: $bookId) {
+  query GET_SENTENCES($bookId: ID!, $cursor: ID) {
+    sentences(bookId: $bookId, cursor: $cursor) {
       id
       bookId
       text

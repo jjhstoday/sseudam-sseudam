@@ -5,8 +5,16 @@ const setStcs = data => writeDB('sentences', data);
 
 const stcResolver = {
   Query: {
-    sentences: (parent, { bookId = '' }, { db }) => {
-      return db.sentences.filter(stc => stc?.bookId === bookId) || [];
+    sentences: (parent, { bookId = '', cursor = '' }, { db }) => {
+      const thatBooksSentences = db.sentences.filter(
+        stc => stc?.bookId === bookId
+      );
+      if (cursor === 'all') return thatBooksSentences || [];
+      else {
+        const fromIndex =
+          thatBooksSentences.findIndex(sentence => sentence.id === cursor) + 1;
+        return thatBooksSentences?.slice(fromIndex, fromIndex + 15) || [];
+      }
     },
     sentence: (parent, { id = '' }, { db }) => {
       return db.sentences.find(stc => stc.id === id);

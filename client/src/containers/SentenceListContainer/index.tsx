@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Ul } from './styles';
 import { DELETE_BOOK } from 'graphql/book';
 import { fetcher } from 'queryClient';
@@ -8,6 +8,7 @@ import { GET_SENTENCES } from 'graphql/sentence';
 import MyCount from 'components/MyCount';
 import ButtonsContainer from 'containers/ButtonsContainer';
 import Message from 'components/Message';
+import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
 interface Props {
   bookId: string;
@@ -24,14 +25,37 @@ interface Sentences {
 const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   const history = useHistory();
   const [stcs, setStcs] = useState<Sentences[]>([]);
+  const fetchMoreEl = useRef<HTMLDivElement | null>(null);
+  const intersecting = useInfiniteScroll(fetchMoreEl);
+  const [hasNext, setHasNext] = useState(true);
+  const [booksLength, setBooksLength] = useState(0);
 
   const getServerSideData = async () => {
-    const { sentences: sStcs } = await fetcher(GET_SENTENCES, { bookId });
-    setStcs(sStcs);
+    const { sentences: sStcs } = await fetcher(GET_SENTENCES, {
+      bookId,
+      cursor: stcs[stcs.length - 1]?.id
+    });
+    if (sStcs.length === 0) {
+      setHasNext(false);
+      return;
+    }
+    setStcs(old => [...old, ...sStcs]);
   };
 
   useEffect(() => {
-    getServerSideData();
+    if (intersecting && hasNext) getServerSideData();
+  }, [intersecting, hasNext]);
+
+  const getStcsLength = async () => {
+    const { sentences: sStcs } = await fetcher(GET_SENTENCES, {
+      bookId,
+      cursor: 'all'
+    });
+    setBooksLength(sStcs.length);
+  };
+
+  useEffect(() => {
+    getStcsLength();
   }, []);
 
   const onClick = async (bookId: string) => {
@@ -42,7 +66,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   return (
     <>
       <ButtonsContainer pageName='needToDelete' id={bookId} onClick={onClick} />
-      <MyCount count={stcs.length} title='나의 기록' />
+      <MyCount count={booksLength} title='나의 기록' />
       {stcs.length > 0 ? (
         <Ul>
           {stcs.map(stc => (
@@ -59,6 +83,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
       ) : (
         <Message text='나만의 첫 문장을 기록해보세요.' />
       )}
+      <div ref={fetchMoreEl}></div>
     </>
   );
 };
