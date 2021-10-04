@@ -1,5 +1,5 @@
 import { GET_BOOKS } from 'graphql/book';
-import { fetcher, QueryKeys } from 'queryClient';
+import { fetcher } from 'queryClient';
 import React, { useEffect, useRef, useState } from 'react';
 import Book from 'components/Book';
 import { Ul } from './styles';
@@ -19,6 +19,7 @@ export default function BookListContainer() {
   const fetchMoreEl = useRef<HTMLDivElement | null>(null);
   const intersecting = useInfiniteScroll(fetchMoreEl);
   const [hasNext, setHasNext] = useState(true);
+  const [booksLength, setBooksLength] = useState(0);
 
   const getServerSideData = async () => {
     const { books: sBooks } = await fetcher(GET_BOOKS, {
@@ -35,9 +36,17 @@ export default function BookListContainer() {
     if (intersecting && hasNext) getServerSideData();
   }, [intersecting, hasNext]);
 
+  const getBooksLength = async () => {
+    const { books: sBooks } = await fetcher(GET_BOOKS, { cursor: 'all' });
+    setBooksLength(sBooks.length);
+  };
+  useEffect(() => {
+    getBooksLength();
+  }, []);
+
   return (
     <>
-      <MyCount count={books.length} title='나의 책장' />
+      <MyCount count={booksLength} title='나의 책장' />
       {books.length > 0 ? (
         <Ul>
           {books.map(book => (
