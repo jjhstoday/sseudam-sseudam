@@ -205,7 +205,6 @@ section {
 }
 
 /* 웹폰트 CSS */
-/* 로고 글씨체 */
 @font-face {
     font-family: 'GowunBatang-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
@@ -213,6 +212,7 @@ section {
     font-style: normal;
 }
 
+/* 로고 글씨체 */
 @font-face {
     font-family: 'designhouseOTFLight00';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/designhouseOTFLight00.woff') format('woff');
@@ -224,13 +224,6 @@ section {
 @font-face {
     font-family: 'GowunDodum-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'MapoFlowerIsland';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
