@@ -7,7 +7,7 @@ export const Li = styled.li`
   border: 1px solid ${lightPalette.themePrimaryFont};
   margin-bottom: 4rem;
   position: relative;
-  background: #f7f5f3;
+  background: #fff;
 
   p {
     font-size: ${fontSizeKit.medium};

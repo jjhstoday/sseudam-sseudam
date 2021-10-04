@@ -7,7 +7,7 @@ export const Textarea = styled.textarea`
   margin-bottom: 8%;
   outline: none;
   resize: none;
-  width: 100vw;
+  width: 100%;
   min-height: 60vh;
   font-size: ${fontSizeKit.medium};
   line-height: 3rem;

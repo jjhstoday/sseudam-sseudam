@@ -127,6 +127,7 @@ body {
   margin: 0;
   padding: 0;
   background: #f7f5f3;
+  z-index: -2;
   position: relative; 
 
   -webkit-font-smoothing: antialiased;

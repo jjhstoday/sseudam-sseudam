@@ -8,6 +8,7 @@ export const OffRadioIcon = styled(IoMdRadioButtonOff)`
   color: ${lightPalette.themeSecondary};
   opacity: 0.4;
   flex-shrink: 0;
+  cursor: pointer;
 `;
 export const OnRadioIcon = styled(IoMdRadioButtonOn)`
   width: 20px;
@@ -15,4 +16,5 @@ export const OnRadioIcon = styled(IoMdRadioButtonOn)`
   color: ${lightPalette.themeSecondary};
   opacity: 0.6;
   flex-shrink: 0;
+  cursor: pointer;
 `;

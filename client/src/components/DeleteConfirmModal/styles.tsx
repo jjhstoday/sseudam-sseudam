@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { fontSizeKit, fontWeightKit, lightPalette } from 'styles';
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   display: flex;
@@ -51,6 +51,7 @@ export const Container = styled.div`
         border: 1px solid ${lightPalette.themeSecondary};
         background: transparent;
         color: ${lightPalette.themeSecondary};
+        cursor: pointer;
 
         &:last-child {
           margin-left: 1rem;

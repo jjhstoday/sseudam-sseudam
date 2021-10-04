@@ -12,6 +12,7 @@ export const Button = styled.button`
   top: 47px;
   z-index: 3;
   left: 8%;
+  cursor: pointer;
 
   ${CloseIcon} {
     width: 100%;

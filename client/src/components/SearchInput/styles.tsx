@@ -31,5 +31,6 @@ export const Container = styled.div<Props>`
     transform: translateY(-50%);
     right: 1.5rem;
     opacity: ${props => (props.$text > 0 ? '0.7' : '0')};
+    cursor: pointer;
   }
 `;

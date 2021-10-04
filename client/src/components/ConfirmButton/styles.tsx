@@ -15,6 +15,7 @@ export const Button = styled.button<Props>`
   top: 47px;
   z-index: 3;
   right: 8%;
+  cursor: ${props => (props.$readyToSubmit ? 'pointer' : 'not-allowed;')};
 
   ${ConfirmIcon} {
     width: 100%;

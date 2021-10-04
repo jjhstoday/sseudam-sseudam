@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Ul = styled.ul`
-  padding: 20rem 8% 0;
+  margin: 0 8%;
+  padding-top: 20rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  overflow: hidden;
 `;

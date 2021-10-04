@@ -13,12 +13,12 @@ export const Li = styled.li`
 
     &::after {
       content: '';
-      width: 375%;
+      width: 100vw;
       height: 2px;
       display: block;
       position: absolute;
       bottom: -0.2rem;
-      left: 1px;
+      left: -10px;
       z-index: 1;
       background: gray;
       box-shadow: 0px 3px 5px black;
