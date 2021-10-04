@@ -1,6 +1,5 @@
-import CloseButton from 'components/CloseButton';
-import ConfirmButton from 'components/ConfirmButton';
 import SentenceTextarea from 'components/SentenceTextarea';
+import ButtonsContainer from 'containers/ButtonsContainer';
 import { CREATE_SENTENCE } from 'graphql/sentence';
 import { fetcher } from 'queryClient';
 import React, { ChangeEventHandler, FC, useState } from 'react';
@@ -25,8 +24,11 @@ const CreateSentenceContainer: FC<Props> = ({ id }) => {
   };
   return (
     <>
-      <CloseButton />
-      <ConfirmButton onClick={onSubmit} readyToSubmit={!!text.trim()} />
+      <ButtonsContainer
+        pageName='needToContirm'
+        onSubmit={onSubmit}
+        readyToSubmit={!!text.trim()}
+      />
       <SentenceTextarea text={text} onChange={onChange} />
     </>
   );

@@ -112,6 +112,13 @@ li {
   }
 }
 
+html {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #aeaeae;
+
+}
+
 body {
   font-family: GowunDodum-Regular, 'Nanum Gothic', sans-serif, -apple-system, BlinkMacSystemFont,
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -119,12 +126,16 @@ body {
   line-height: 1;
   margin: 0;
   padding: 0;
-  background: #F7F5F3;
+  background: #f7f5f3;
+  position: relative; 
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.1rem;
   height: 100%;
   color: #404040;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -189,7 +200,8 @@ input::-webkit-search-results-decoration{
 }
 
 section {
-  min-height: 67.4vh;
+  min-height: calc(100vh - 40px);
+  position: relative; 
 }
 
 /* 웹폰트 CSS */

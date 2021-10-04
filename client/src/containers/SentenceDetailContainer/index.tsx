@@ -1,7 +1,5 @@
-import CloseButton from 'components/CloseButton';
-import DeleteButton from 'components/DeleteButton';
 import SentenceDetail from 'components/SentenceDetail';
-import UpdateButton from 'components/UpdateButton';
+import ButtonsContainer from 'containers/ButtonsContainer';
 import { DELETE_SENTENCE } from 'graphql/sentence';
 import { fetcher } from 'queryClient';
 import React, { FC } from 'react';
@@ -53,14 +51,14 @@ const SentenceDetailContainer: FC<Props> = ({
 
   return (
     <>
-      <CloseButton />
-      <UpdateButton
+      <ButtonsContainer
+        pageName='needToUpdate'
         id={id}
         text={text}
         trimedBookId={trimedBookId}
         onUpdate={onUpdate}
+        onClick={onClick}
       />
-      <DeleteButton id={id} onClick={onClick} />
       <SentenceDetail title={title} text={text} />
     </>
   );

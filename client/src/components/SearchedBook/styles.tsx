@@ -7,10 +7,12 @@ export const OffRadioIcon = styled(IoMdRadioButtonOff)`
   height: 20px;
   color: ${lightPalette.themeSecondary};
   opacity: 0.4;
+  flex-shrink: 0;
 `;
 export const OnRadioIcon = styled(IoMdRadioButtonOn)`
   width: 20px;
   height: 20px;
   color: ${lightPalette.themeSecondary};
   opacity: 0.6;
+  flex-shrink: 0;
 `;

@@ -1,6 +1,5 @@
-import CloseButton from 'components/CloseButton';
-import ConfirmButton from 'components/ConfirmButton';
 import SentenceTextarea from 'components/SentenceTextarea';
+import ButtonsContainer from 'containers/ButtonsContainer';
 import { UPDATE_SENTENCE } from 'graphql/sentence';
 import { fetcher } from 'queryClient';
 import React, { ChangeEventHandler, useEffect, useState } from 'react';
@@ -22,7 +21,6 @@ export default function UpdateSentenceContainer() {
   const onSubmit = async () => {
     if (!newText.trim().length) return null;
     await fetcher(UPDATE_SENTENCE, { id, text: newText });
-    console.log('onsubmit..');
     history.push({
       pathname: `/book/${trimedBookId}/sentence/${id}`,
       state: { id, bookId, text: newText, title, trimedBookId }
@@ -39,11 +37,12 @@ export default function UpdateSentenceContainer() {
 
   return (
     <>
-      <CloseButton />
-      <ConfirmButton
-        onClick={onSubmit}
+      <ButtonsContainer
+        pageName='needToContirm'
+        onSubmit={onSubmit}
         readyToSubmit={!!newText.trim().length}
       />
+
       <SentenceTextarea text={newText} onChange={onChange} />
     </>
   );

@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
   background: ${lightPalette.themePrimary};
   width: 100vw;
   z-index: 3;
+  max-width: 600px;
 
   h2 {
     display: flex;
@@ -22,9 +23,9 @@ export const HeaderContainer = styled.header`
     line-height: 4rem;
     font-size: 2.5rem;
     font-family: designhouseOTFLight00;
-    width: 55vw;
     margin: 0 auto;
     word-break: keep-all;
+    width: 50%;
   }
 
   ${Divider} {

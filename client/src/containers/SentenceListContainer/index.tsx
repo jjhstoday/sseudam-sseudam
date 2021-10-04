@@ -1,7 +1,5 @@
-import CloseButton from 'components/CloseButton';
 import React, { FC, useEffect, useState } from 'react';
 import { Ul, P } from './styles';
-import DeleteButton from 'components/DeleteButton';
 import { DELETE_BOOK } from 'graphql/book';
 import { fetcher } from 'queryClient';
 import { useHistory } from 'react-router-dom';
@@ -9,6 +7,7 @@ import Sentence from 'components/Sentence';
 import { GET_SENTENCES } from 'graphql/sentence';
 import MyCount from 'components/MyCount';
 import HappyFace from 'assets/icon/happy-face.png';
+import ButtonsContainer from 'containers/ButtonsContainer';
 
 interface Props {
   bookId: string;
@@ -42,8 +41,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
 
   return (
     <>
-      <CloseButton />
-      <DeleteButton id={bookId} onClick={onClick} />
+      <ButtonsContainer pageName='needToDelete' id={bookId} onClick={onClick} />
       <MyCount count={stcs.length} title='나의 기록' />
       <Ul>
         {stcs.length > 0 ? (

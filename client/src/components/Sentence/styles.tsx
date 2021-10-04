@@ -4,7 +4,6 @@ import { GiPaperClip } from 'react-icons/gi';
 
 export const ClipIcon = styled(GiPaperClip)``;
 export const Li = styled.li`
-  padding: 3rem 2rem;
   border: 1px solid ${lightPalette.themePrimaryFont};
   margin-bottom: 4rem;
   position: relative;
@@ -15,6 +14,7 @@ export const Li = styled.li`
     color: ${lightPalette.themePrimaryFont};
     line-height: 2.5rem;
     white-space: pre-wrap;
+    padding: 3rem 2rem;
   }
 
   &:after {

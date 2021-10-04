@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import { fontSizeKit, lightPalette } from 'styles';
 
 export const Container = styled.div`
-  min-height: calc(100vh - 135px);
+  min-height: 100vh;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  padding: 0 8%;
-  margin-top: 135px;
+  padding: 8rem 8% 0;
 
   p {
     font-size: ${fontSizeKit.medium};

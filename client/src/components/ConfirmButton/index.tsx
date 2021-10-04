@@ -2,12 +2,12 @@ import React, { FC, MouseEventHandler } from 'react';
 import { Button, ConfirmIcon } from './styles';
 
 interface Props {
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onSubmit: MouseEventHandler<HTMLButtonElement>;
   readyToSubmit: boolean;
 }
-const ConfirmButton: FC<Props> = ({ onClick, readyToSubmit }) => {
+const ConfirmButton: FC<Props> = ({ onSubmit, readyToSubmit }) => {
   return (
-    <Button onClick={onClick} $readyToSubmit={readyToSubmit}>
+    <Button onClick={onSubmit} $readyToSubmit={readyToSubmit}>
       <ConfirmIcon />
     </Button>
   );

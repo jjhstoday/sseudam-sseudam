@@ -8,12 +8,13 @@ export const HeartIcon = styled(ImHeart)``;
 export const Span = styled.span`
   font-size: ${fontSizeKit.small};
   color: ${lightPalette.themePrimaryFont};
-  padding: 0 11%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: start;
   position: absolute;
   top: 160px;
+  left: 8%;
 
   ${BookIcon}, ${HeartIcon} {
     color: ${lightPalette.themePrimaryFont};

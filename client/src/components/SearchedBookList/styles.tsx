@@ -11,6 +11,8 @@ export const Ul = styled.ul`
     border-bottom: 1px solid rgba(116, 89, 47, 0.2);
     overflow: hidden;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     &:first-child {
       border-top: 1px solid rgba(116, 89, 47, 0.2);
@@ -26,7 +28,8 @@ export const Ul = styled.ul`
       flex-flow: column;
       margin-left: 2rem;
       justify-content: center;
-      width: 230px;
+      min-width: 230px;
+      flex-grow: 1;
 
       span {
         font-size: ${fontSizeKit.small};

@@ -1,6 +1,4 @@
 import { getSearchBook } from 'api/bookApi';
-import CloseButton from 'components/CloseButton';
-import ConfirmButton from 'components/ConfirmButton';
 import SearchedBookList from 'components/SearchedBookList';
 import SearchInput from 'components/SearchInput';
 import { fetcher } from 'queryClient';
@@ -12,6 +10,7 @@ import React, {
 import { Container } from './styles';
 import { CREATE_BOOK } from 'graphql/book';
 import { useHistory } from 'react-router-dom';
+import ButtonsContainer from 'containers/ButtonsContainer';
 
 interface SearchedBook {
   author: string;
@@ -109,8 +108,11 @@ export default function SearchingBookContainer() {
 
   return (
     <>
-      <CloseButton />
-      <ConfirmButton onClick={onSubmit} readyToSubmit={!!selectedBook.id} />
+      <ButtonsContainer
+        pageName='needToContirm'
+        onSubmit={onSubmit}
+        readyToSubmit={!!selectedBook.id}
+      />
       <Container>
         <SearchInput onKeyPress={onKeyPress} />
         <SearchedBookList
