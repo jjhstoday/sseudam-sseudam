@@ -1,8 +1,8 @@
 import { gql } from 'graphql-tag';
 
 export const GET_BOOKS = gql`
-  query GET_BOOKS {
-    books {
+  query GET_BOOKS($cursor: ID) {
+    books(cursor: $cursor) {
       id
       title
       author

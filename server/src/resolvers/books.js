@@ -5,8 +5,9 @@ const setBooks = data => writeDB('books', data);
 
 const bookResolver = {
   Query: {
-    books: (parent, args, { db }) => {
-      return db.books;
+    books: (parent, { cursor = '' }, { db }) => {
+      const fromIndex = db.books.findIndex(book => book.id === cursor) + 1;
+      return db.books?.slice(fromIndex, fromIndex + 15) || [];
     },
     book: (parent, { id = '' }, { db }) => {
       return db.books.find(book => book.id === id);

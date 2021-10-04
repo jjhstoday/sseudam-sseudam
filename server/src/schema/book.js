@@ -10,7 +10,7 @@ const bookSchema = gql`
   }
 
   extend type Query {
-    books: [Book!]!
+    books(cursor: ID): [Book!]!
     book(id: ID!): Book!
   }
 
