@@ -25,20 +25,20 @@ interface SearchedBook {
   publisher?: string;
 }
 
-const trimedTitle = (title: string) => {
-  let newTitle = '';
-  let copyTitle = title.split('');
-  let isTitle = true;
+const trimedText = (text: string) => {
+  let newText = '';
+  let copyTitle = text.split('');
+  let isText = true;
   let isLparen = false;
 
   for (let i = 0; i < copyTitle.length; i++) {
-    if (copyTitle[i] === '<') isTitle = false;
+    if (copyTitle[i] === '<') isText = false;
     if (copyTitle[i] === '(') isLparen = true;
-    if (isTitle && !isLparen) newTitle += copyTitle[i];
-    if (copyTitle[i] === '>') isTitle = true;
+    if (isText && !isLparen) newText += copyTitle[i];
+    if (copyTitle[i] === '>') isText = true;
     if (copyTitle[i] === ')') isLparen = false;
   }
-  return newTitle;
+  return newText;
 };
 
 export default function SearchingBookContainer() {
@@ -63,8 +63,8 @@ export default function SearchingBookContainer() {
     const newRes = res.map((res: SearchedBook) => {
       return {
         id: res.isbn,
-        title: trimedTitle(res.title),
-        author: res.author,
+        title: trimedText(res.title),
+        author: trimedText(res.author),
         image: res.image,
         isChecked: false
       };
