@@ -1,3 +1,9 @@
+process.env.NODE_ENV =
+  process.env.NODE_ENV &&
+  process.env.NODE_ENV.trim().toLowerCase() == 'production'
+    ? 'production'
+    : 'development';
+
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import schema from './schema/index.js';
