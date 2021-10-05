@@ -1,0 +1,8 @@
+{
+  "apps": [{
+    "name": "sseudam-sseudam",
+    "script": "npm",
+    "args": "start",
+    "watch": "true"
+  }]
+}
