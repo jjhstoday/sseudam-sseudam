@@ -61,7 +61,8 @@ server.applyMiddleware({
     origin: [
       'http://localhost:3000',
       'https://studio.apollographql.com',
-      'https://openapi.naver.com'
+      'https://openapi.naver.com',
+      'http://3.144.135.145:3000/'
     ],
     credentials: true
   }
