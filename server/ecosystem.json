@@ -1,8 +1,13 @@
 {
   "apps": [{
     "name": "sseudam-sseudam",
-    "script": "npm",
-    "args": "start",
-    "watch": "true"
+    "script": "./src/index.js",
+    "watch": "true",
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "env_production": {
+      "NODE_ENV": "production"
+    }
   }]
 }
