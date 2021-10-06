@@ -1,9 +1,3 @@
-process.env.NODE_ENV =
-  process.env.NODE_ENV &&
-  process.env.NODE_ENV.trim().toLowerCase() == 'production'
-    ? 'production'
-    : 'development';
-
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import schema from './schema/index.js';
@@ -62,13 +56,11 @@ server.applyMiddleware({
       'http://localhost:3000',
       'https://studio.apollographql.com',
       'https://openapi.naver.com',
-      'http://52.14.101.121/'
+      'http://52.14.101.121'
     ],
     credentials: true
   }
 });
 
-await app.listen({
-  port: process.env.NODE_ENV === 'production' ? 80 : 8000
-});
+await app.listen({ port: 8000 });
 console.log('server listening on 8000...');
