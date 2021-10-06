@@ -62,7 +62,7 @@ server.applyMiddleware({
       'http://localhost:3000',
       'https://studio.apollographql.com',
       'https://openapi.naver.com',
-      'http://3.144.135.145:3000/'
+      'http://52.14.101.121/'
     ],
     credentials: true
   }
