@@ -6,6 +6,7 @@ import { Ul } from './styles';
 import MyCount from 'components/MyCount';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
 import Message from 'components/Message';
+import Loading from 'components/Loading';
 
 interface Books {
   id: string;
@@ -20,6 +21,7 @@ export default function BookListContainer() {
   const intersecting = useInfiniteScroll(fetchMoreEl);
   const [hasNext, setHasNext] = useState(true);
   const [booksLength, setBooksLength] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const getServerSideData = async () => {
     const { books: sBooks } = await fetcher(GET_BOOKS, {
@@ -38,7 +40,8 @@ export default function BookListContainer() {
 
   const getBooksLength = async () => {
     const { books: sBooks } = await fetcher(GET_BOOKS, { cursor: 'all' });
-    setBooksLength(sBooks.length);
+    await setBooksLength(sBooks.length);
+    await setTimeout(() => setLoading(true), 500);
   };
 
   useEffect(() => {
@@ -47,16 +50,23 @@ export default function BookListContainer() {
 
   return (
     <>
-      <MyCount count={booksLength} title='나의 책장' />
-      {books.length > 0 ? (
-        <Ul>
-          {books.map(book => (
-            <Book key={book.id} book={book} />
-          ))}
-        </Ul>
+      {!loading ? (
+        <Loading />
       ) : (
-        <Message text='나만의 첫 책을 등록해보세요.' />
+        <>
+          <MyCount count={booksLength} title='나의 책장' />
+          {books.length > 0 ? (
+            <Ul>
+              {books.map(book => (
+                <Book key={book.id} book={book} />
+              ))}
+            </Ul>
+          ) : (
+            <Message text='나만의 첫 책을 등록해보세요.' />
+          )}
+        </>
       )}
+
       <div ref={fetchMoreEl}></div>
     </>
   );

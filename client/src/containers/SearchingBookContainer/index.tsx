@@ -53,12 +53,14 @@ export default function SearchingBookContainer() {
     image: ''
   });
   const history = useHistory();
+  const [loading, setLoading] = useState(true);
 
   const onKeyPress: KeyboardEventHandler<HTMLInputElement> = async e => {
     const element = e.currentTarget as HTMLInputElement;
     const value = element.value;
 
     if (e.key !== 'Enter' || !value.trim()) return null;
+    await setLoading(false);
     const res = await getSearchBook(value);
     const newRes = res.map((res: SearchedBook) => {
       return {
@@ -69,8 +71,9 @@ export default function SearchingBookContainer() {
         isChecked: false
       };
     });
-    setSearchedBook(newRes);
-    newRes.length ? setIsFail(false) : setIsFail(true);
+    await setSearchedBook(newRes);
+    newRes.length ? await setIsFail(false) : await setIsFail(true);
+    await setTimeout(() => setLoading(true), 500);
   };
 
   const onClick = (id: string) => {
@@ -119,6 +122,7 @@ export default function SearchingBookContainer() {
           searchedBook={searchedBook}
           onClick={onClick}
           isFail={isFail}
+          loading={loading}
         />
       </Container>
     </>

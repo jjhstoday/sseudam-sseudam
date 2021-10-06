@@ -9,6 +9,7 @@ import MyCount from 'components/MyCount';
 import ButtonsContainer from 'containers/ButtonsContainer';
 import Message from 'components/Message';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
+import Loading from 'components/Loading';
 
 interface Props {
   bookId: string;
@@ -30,6 +31,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   const [hasNext, setHasNext] = useState(true);
   const [booksLength, setBooksLength] = useState(0);
   const [isModal, setIsModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getServerSideData = async () => {
     const { sentences: sStcs } = await fetcher(GET_SENTENCES, {
@@ -52,7 +54,8 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
       bookId,
       cursor: 'all'
     });
-    setBooksLength(sStcs.length);
+    await setBooksLength(sStcs.length);
+    await setTimeout(() => setLoading(true), 500);
   };
 
   useEffect(() => {
@@ -82,22 +85,28 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
         onDeleteCancel={onDeleteCancel}
         onDeleteConfirm={onDeleteConfirm}
       />
-      <MyCount count={booksLength} title='나의 기록' />
-      {stcs.length > 0 ? (
-        <Ul>
-          {stcs.map(stc => (
-            <Sentence
-              key={stc.id}
-              text={stc.text}
-              id={stc.id}
-              bookId={bookId}
-              trimedBookId={trimedBookId}
-              title={title}
-            />
-          ))}
-        </Ul>
+      {!loading ? (
+        <Loading />
       ) : (
-        <Message text='나만의 첫 문장을 기록해보세요.' />
+        <>
+          <MyCount count={booksLength} title='나의 기록' />
+          {stcs.length > 0 ? (
+            <Ul>
+              {stcs.map(stc => (
+                <Sentence
+                  key={stc.id}
+                  text={stc.text}
+                  id={stc.id}
+                  bookId={bookId}
+                  trimedBookId={trimedBookId}
+                  title={title}
+                />
+              ))}
+            </Ul>
+          ) : (
+            <Message text='나만의 첫 문장을 기록해보세요.' />
+          )}
+        </>
       )}
       <div ref={fetchMoreEl}></div>
     </>
