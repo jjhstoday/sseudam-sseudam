@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const URL =
   process.env.NODE_ENV === 'production'
-    ? 'http://52.14.101.121/'
+    ? 'http://52.14.101.121:8000/'
     : 'http://localhost:8000/';
 
 export const getSearchBook = async (title: string) => {
