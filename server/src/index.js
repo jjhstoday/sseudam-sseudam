@@ -68,5 +68,7 @@ server.applyMiddleware({
   }
 });
 
-await app.listen({ port: 8000 });
+await app.listen({
+  port: process.env.NODE_ENV === 'production' ? 80 : 8000
+});
 console.log('server listening on 8000...');

@@ -5,6 +5,7 @@ import BookListContainer from 'containers/BookListContainer';
 import React from 'react';
 
 export default function Home() {
+  console.log('NODE_ENV: ', process.env.NODE_ENV, 'process.env: ', process.env);
   return (
     <>
       <Header title='쓰담쓰담' />
