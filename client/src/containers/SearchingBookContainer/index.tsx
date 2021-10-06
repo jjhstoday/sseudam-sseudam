@@ -73,7 +73,7 @@ export default function SearchingBookContainer() {
     });
     await setSearchedBook(newRes);
     newRes.length ? await setIsFail(false) : await setIsFail(true);
-    await setTimeout(() => setLoading(true), 500);
+    await setTimeout(() => setLoading(true), 50);
   };
 
   const onClick = (id: string) => {

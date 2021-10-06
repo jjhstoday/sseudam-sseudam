@@ -55,7 +55,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
       cursor: 'all'
     });
     await setBooksLength(sStcs.length);
-    await setTimeout(() => setLoading(true), 500);
+    await setTimeout(() => setLoading(true), 50);
   };
 
   useEffect(() => {

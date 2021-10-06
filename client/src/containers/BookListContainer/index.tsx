@@ -41,7 +41,7 @@ export default function BookListContainer() {
   const getBooksLength = async () => {
     const { books: sBooks } = await fetcher(GET_BOOKS, { cursor: 'all' });
     await setBooksLength(sBooks.length);
-    await setTimeout(() => setLoading(true), 500);
+    await setTimeout(() => setLoading(true), 50);
   };
 
   useEffect(() => {
