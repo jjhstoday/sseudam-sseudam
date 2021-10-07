@@ -19,6 +19,7 @@ export const Container = styled.div<Props>`
     box-shadow: 0 5px 20px rgba(50, 50, 50, 0.1),
       0 2px 2px rgba(50, 50, 50, 0.1);
     border-radius: 5px;
+    -webkit-border-radius: 5px;
     outline: none;
   }
 
