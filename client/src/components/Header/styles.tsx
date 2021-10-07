@@ -25,7 +25,7 @@ export const HeaderContainer = styled.header`
     font-family: designhouseOTFLight00;
     margin: 0 auto;
     word-break: keep-all;
-    width: 50%;
+    width: 60%;
   }
 
   ${Divider} {
