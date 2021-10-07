@@ -205,6 +205,13 @@ section {
   position: relative; 
 }
 
+input, textarea {
+  -moz-user-select: auto;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
 /* 웹폰트 CSS */
 @font-face {
     font-family: 'GowunBatang-Regular';
