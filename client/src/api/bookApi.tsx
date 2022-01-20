@@ -1,14 +1,12 @@
 import axios from 'axios';
 
 const URL =
-  process.env.NODE_ENV === 'production'
-    ? 'http://52.14.101.121:8000/'
-    : 'http://localhost:8000/';
+  process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_SERVER_HOST}:8000/` : 'http://localhost:8000/';
 
 export const getSearchBook = async (title: string) => {
   try {
     const res = await axios.get(URL, {
-      params: title
+      params: title,
     });
     return res.data.items;
   } catch (err) {
