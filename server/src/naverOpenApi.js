@@ -1,16 +1,13 @@
 import request from 'request';
 
-const ID_KEY = '0Xw0kbNgPLwxFPxcR36e';
-const SECRET_KEY = 'hMNy96XrBF';
-
 const naverOpenApi = (req, res) => {
   const api_url = 'https://openapi.naver.com/v1/search/book_adv.json?d_titl=' + encodeURI(req.query[0]);
 
   const options = {
     url: api_url,
     headers: {
-      'X-Naver-Client-Id': ID_KEY,
-      'X-Naver-Client-Secret': SECRET_KEY,
+      'X-Naver-Client-Id': process.env.NAVER_OPEN_API_ID_KEY,
+      'X-Naver-Client-Secret': process.env.NAVER_OPEN_API_SECRET_KEY,
     },
   };
 

@@ -4,6 +4,9 @@ import schema from './schema/index.js';
 import resolvers from './resolvers/index.js';
 import { readDB } from './dbController.js';
 import naverOpenApi from './naverOpenApi.js';
+import { config } from 'dotenv';
+
+config();
 
 const server = new ApolloServer({
   typeDefs: schema,
