@@ -1,9 +1,11 @@
-import SentenceTextarea from 'components/SentenceTextarea';
-import ButtonsContainer from 'containers/ButtonsContainer';
-import { UPDATE_SENTENCE } from 'graphql/sentence';
-import { fetcher } from 'queryClient';
 import React, { ChangeEventHandler, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+
+import { UPDATE_SENTENCE } from 'graphql/sentence';
+import { fetcher } from 'queryClient';
+
+import { ButtonsContainer } from 'containers';
+import { SentenceTextarea } from 'components';
 
 interface StateTypes {
   id: string;
@@ -23,7 +25,7 @@ export default function UpdateSentenceContainer() {
     await fetcher(UPDATE_SENTENCE, { id, text: newText });
     history.push({
       pathname: `/book/${trimedBookId}/sentence/${id}`,
-      state: { id, bookId, text: newText, title, trimedBookId }
+      state: { id, bookId, text: newText, title, trimedBookId },
     });
   };
 
@@ -37,11 +39,7 @@ export default function UpdateSentenceContainer() {
 
   return (
     <>
-      <ButtonsContainer
-        pageName='needToContirm'
-        onSubmit={onSubmit}
-        readyToSubmit={!!newText.trim().length}
-      />
+      <ButtonsContainer pageName='needToContirm' onSubmit={onSubmit} readyToSubmit={!!newText.trim().length} />
 
       <SentenceTextarea text={newText} onChange={onChange} />
     </>

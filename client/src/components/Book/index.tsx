@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Li } from './styles';
 
 export interface BookProps {
@@ -27,8 +28,8 @@ const Book: FC<BookProps> = ({ book }) => {
             bookId: book.id,
             text: '',
             title: book.title.trim(),
-            trimedBookId: trimTitle(book.title)
-          }
+            trimedBookId: trimTitle(book.title),
+          },
         }}
       >
         <img src={book.image} alt={book.title} />

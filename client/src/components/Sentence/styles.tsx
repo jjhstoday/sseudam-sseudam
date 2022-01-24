@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { fontSizeKit, lightPalette } from 'styles';
 import { GiPaperClip } from 'react-icons/gi';
+
+import { fontSizeKit, lightPalette } from 'styles';
 
 export const ClipIcon = styled(GiPaperClip)``;
 export const Li = styled.li`

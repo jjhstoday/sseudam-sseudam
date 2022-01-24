@@ -1,4 +1,5 @@
 import React, { FC, MouseEventHandler } from 'react';
+
 import { Button, ConfirmIcon } from './styles';
 
 interface Props {

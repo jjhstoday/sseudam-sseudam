@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { GiFeather } from 'react-icons/gi';
+
 import { lightPalette } from 'styles';
 
 interface Props {

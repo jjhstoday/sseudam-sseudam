@@ -1,5 +1,6 @@
-import DeleteConfirmModal from 'components/DeleteConfirmModal';
 import React, { FC } from 'react';
+
+import { DeleteConfirmModal } from 'components';
 import { Button, DeleteBookIcon } from './styles';
 
 interface Props {
@@ -15,20 +16,14 @@ const DeleteButton: FC<Props> = ({
   onClick,
   isModal = false,
   onDeleteCancel = () => {},
-  onDeleteConfirm = () => {}
+  onDeleteConfirm = () => {},
 }) => {
   return (
     <>
       <Button onClick={() => onClick(id)}>
         <DeleteBookIcon />
       </Button>
-      {isModal && (
-        <DeleteConfirmModal
-          onDeleteCancel={onDeleteCancel}
-          onDeleteConfirm={onDeleteConfirm}
-          id={id}
-        />
-      )}
+      {isModal && <DeleteConfirmModal onDeleteCancel={onDeleteCancel} onDeleteConfirm={onDeleteConfirm} id={id} />}
     </>
   );
 };

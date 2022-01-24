@@ -1,9 +1,11 @@
-import SentenceDetail from 'components/SentenceDetail';
-import ButtonsContainer from 'containers/ButtonsContainer';
-import { DELETE_SENTENCE } from 'graphql/sentence';
-import { fetcher } from 'queryClient';
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import { fetcher } from 'queryClient';
+import { DELETE_SENTENCE } from 'graphql/sentence';
+
+import { ButtonsContainer } from 'containers';
+import { SentenceDetail } from 'components';
 
 interface Props {
   id: string;
@@ -13,13 +15,7 @@ interface Props {
   trimedBookId: string;
 }
 
-const SentenceDetailContainer: FC<Props> = ({
-  id,
-  bookId,
-  text,
-  title,
-  trimedBookId
-}) => {
+const SentenceDetailContainer: FC<Props> = ({ id, bookId, text, title, trimedBookId }) => {
   const history = useHistory();
 
   const onClick = async (id: string) => {
@@ -31,8 +27,8 @@ const SentenceDetailContainer: FC<Props> = ({
         bookId,
         text,
         title,
-        trimedBookId
-      }
+        trimedBookId,
+      },
     });
   };
 
@@ -44,8 +40,8 @@ const SentenceDetailContainer: FC<Props> = ({
         bookId,
         text,
         title,
-        trimedBookId
-      }
+        trimedBookId,
+      },
     });
   };
 

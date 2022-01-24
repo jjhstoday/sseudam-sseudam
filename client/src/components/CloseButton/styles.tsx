@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { IoCloseOutline } from 'react-icons/io5';
+
 import { lightPalette } from 'styles';
 
 export const CloseIcon = styled(IoCloseOutline)``;

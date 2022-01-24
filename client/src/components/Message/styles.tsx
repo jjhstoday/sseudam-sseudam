@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { fontSizeKit, lightPalette } from 'styles';
 
 interface Props {

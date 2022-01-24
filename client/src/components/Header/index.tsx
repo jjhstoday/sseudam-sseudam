@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { HeaderContainer, Divider } from './styles';
 
 interface Props {

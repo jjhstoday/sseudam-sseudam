@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
+
 import { lightPalette } from 'styles';
 
 export const UpdateIcon = styled(HiOutlinePencilAlt)``;

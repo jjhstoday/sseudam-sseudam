@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+
 import { CloseIcon, Button } from './styles';
 
 interface StateTypes {
@@ -19,8 +20,7 @@ export default function CloseButton() {
       !pathname.includes('editSentence')
     ) {
       history.push('/');
-    } else if (pathname.includes('sentence'))
-      history.push({ pathname: `/book/${state.trimedBookId}`, state });
+    } else if (pathname.includes('sentence')) history.push({ pathname: `/book/${state.trimedBookId}`, state });
     else history.goBack();
   };
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FiCheck } from 'react-icons/fi';
+
 import { lightPalette } from 'styles';
 
 interface Props {

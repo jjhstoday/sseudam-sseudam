@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { lightPalette } from 'styles';
 
 export const InnerContainer = styled.div``;

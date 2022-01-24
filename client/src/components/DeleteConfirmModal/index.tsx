@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { Container } from './styles';
 
 interface Props {
@@ -7,11 +8,7 @@ interface Props {
   onDeleteConfirm: (id: string) => void;
 }
 
-const DeleteConfirmModal: FC<Props> = ({
-  onDeleteCancel,
-  onDeleteConfirm,
-  id
-}) => {
+const DeleteConfirmModal: FC<Props> = ({ onDeleteCancel, onDeleteConfirm, id }) => {
   return (
     <Container>
       <div>

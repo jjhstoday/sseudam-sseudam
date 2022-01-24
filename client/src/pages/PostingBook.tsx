@@ -1,7 +1,7 @@
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import SearchingBookContainer from 'containers/SearchingBookContainer';
 import React, { useEffect } from 'react';
+
+import { SearchingBookContainer } from 'containers';
+import { AppLayout } from 'components';
 
 export default function PostingBook() {
   useEffect(() => {
@@ -9,12 +9,10 @@ export default function PostingBook() {
   }, []);
 
   return (
-    <>
-      <Header title='책 등록' />
+    <AppLayout title='책 등록'>
       <section>
         <SearchingBookContainer />
       </section>
-      <Footer />
-    </>
+    </AppLayout>
   );
 }

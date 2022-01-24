@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Li, ClipIcon } from './styles';
 
 interface Props {
@@ -15,7 +16,7 @@ const Sentence: FC<Props> = ({ text, id, bookId, trimedBookId, title }) => {
       <Link
         to={{
           pathname: `/book/${trimedBookId}/sentence/${id}`,
-          state: { text, id, bookId, title, trimedBookId }
+          state: { text, id, bookId, title, trimedBookId },
         }}
       >
         <ClipIcon />

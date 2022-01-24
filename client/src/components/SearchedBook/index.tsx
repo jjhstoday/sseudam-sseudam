@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { OffRadioIcon, OnRadioIcon } from './styles';
 
 interface Props {
@@ -10,14 +11,7 @@ interface Props {
   onClick: (id: string) => void;
 }
 
-const SearchedBook: FC<Props> = ({
-  id,
-  title,
-  author,
-  image,
-  isChecked,
-  onClick
-}) => {
+const SearchedBook: FC<Props> = ({ id, title, author, image, isChecked, onClick }) => {
   if (!id || !title || !author || !image) return null;
 
   return (

@@ -1,4 +1,5 @@
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC } from 'react';
+
 import { Button, UpdateIcon } from './styles';
 
 interface Props {

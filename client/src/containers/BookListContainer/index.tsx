@@ -1,12 +1,11 @@
-import { GET_BOOKS } from 'graphql/book';
-import { fetcher } from 'queryClient';
 import React, { useEffect, useRef, useState } from 'react';
-import Book from 'components/Book';
-import { Ul } from './styles';
-import MyCount from 'components/MyCount';
+
+import { fetcher } from 'queryClient';
+import { GET_BOOKS } from 'graphql/book';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
-import Message from 'components/Message';
-import Loading from 'components/Loading';
+
+import { Book, MyCount, Message, Loading } from 'components';
+import { Ul } from './styles';
 
 interface Books {
   id: string;
@@ -25,7 +24,7 @@ export default function BookListContainer() {
 
   const getServerSideData = async () => {
     const { books: sBooks } = await fetcher(GET_BOOKS, {
-      cursor: books[books.length - 1]?.id
+      cursor: books[books.length - 1]?.id,
     });
     if (sBooks.length === 0) {
       setHasNext(false);

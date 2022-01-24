@@ -1,9 +1,11 @@
-import SentenceTextarea from 'components/SentenceTextarea';
-import ButtonsContainer from 'containers/ButtonsContainer';
-import { CREATE_SENTENCE } from 'graphql/sentence';
-import { fetcher } from 'queryClient';
 import React, { ChangeEventHandler, FC, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import { CREATE_SENTENCE } from 'graphql/sentence';
+import { fetcher } from 'queryClient';
+
+import { ButtonsContainer } from 'containers';
+import { SentenceTextarea } from 'components';
 
 interface Props {
   id: string;
@@ -24,11 +26,7 @@ const CreateSentenceContainer: FC<Props> = ({ id }) => {
   };
   return (
     <>
-      <ButtonsContainer
-        pageName='needToContirm'
-        onSubmit={onSubmit}
-        readyToSubmit={!!text.trim()}
-      />
+      <ButtonsContainer pageName='needToContirm' onSubmit={onSubmit} readyToSubmit={!!text.trim()} />
       <SentenceTextarea text={text} onChange={onChange} />
     </>
   );

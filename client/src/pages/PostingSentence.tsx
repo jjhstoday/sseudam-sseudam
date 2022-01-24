@@ -1,9 +1,9 @@
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import CreateSentenceContainer from 'containers/CreateSentenceContainer';
-import { StateType } from 'pages/Sentence';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { CreateSentenceContainer } from 'containers';
+import { AppLayout } from 'components';
+import { StateType } from 'pages/Sentence';
 
 export default function PostingSentence() {
   const { state } = useLocation<StateType>();
@@ -14,12 +14,10 @@ export default function PostingSentence() {
   }, []);
 
   return (
-    <>
-      <Header title='책 문장 기록' />
+    <AppLayout title='책 문장 기록'>
       <section>
         <CreateSentenceContainer id={id} />
       </section>
-      <Footer />
-    </>
+    </AppLayout>
   );
 }

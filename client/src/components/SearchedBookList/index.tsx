@@ -1,7 +1,6 @@
-import Loading from 'components/Loading';
-import Message from 'components/Message';
-import SearchedBook from 'components/SearchedBook';
 import React, { FC } from 'react';
+
+import { Loading, Message, SearchedBook } from 'components';
 import { Ul } from './styles';
 
 interface Props {
@@ -17,12 +16,7 @@ interface Props {
   loading: boolean;
 }
 
-const SearchedBookList: FC<Props> = ({
-  searchedBook,
-  onClick,
-  isFail,
-  loading
-}) => {
+const SearchedBookList: FC<Props> = ({ searchedBook, onClick, isFail, loading }) => {
   if (!loading) return <Loading />;
   if (isFail) return <Message text='검색한 책이 존재하지 않습니다...' />;
   return (

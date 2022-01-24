@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { fontSizeKit, lightPalette } from 'styles';
 import { IoCloseCircle } from 'react-icons/io5';
+
+import { fontSizeKit, lightPalette } from 'styles';
 
 interface Props {
   $text: number;
@@ -16,8 +17,7 @@ export const Container = styled.div<Props>`
     box-sizing: border-box;
     background: #fff;
     font-size: ${fontSizeKit.medium};
-    box-shadow: 0 5px 20px rgba(50, 50, 50, 0.1),
-      0 2px 2px rgba(50, 50, 50, 0.1);
+    box-shadow: 0 5px 20px rgba(50, 50, 50, 0.1), 0 2px 2px rgba(50, 50, 50, 0.1);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     outline: none;

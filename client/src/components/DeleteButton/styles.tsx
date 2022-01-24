@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { AiOutlineDelete } from 'react-icons/ai';
+
 import { lightPalette } from 'styles';
 
 export const DeleteBookIcon = styled(AiOutlineDelete)``;

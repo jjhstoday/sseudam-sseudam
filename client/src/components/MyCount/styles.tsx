@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { fontSizeKit, lightPalette } from 'styles';
 import { FaBook } from 'react-icons/fa';
 import { ImHeart } from 'react-icons/im';
+
+import { fontSizeKit, lightPalette } from 'styles';
 
 export const BookIcon = styled(FaBook)``;
 export const HeartIcon = styled(ImHeart)``;

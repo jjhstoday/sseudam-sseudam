@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ReactComponent as LoadingIcon } from 'assets/loading.svg';
 import { Container } from './styles';
 

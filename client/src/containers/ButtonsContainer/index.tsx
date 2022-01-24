@@ -1,8 +1,6 @@
-import CloseButton from 'components/CloseButton';
-import ConfirmButton from 'components/ConfirmButton';
-import DeleteButton from 'components/DeleteButton';
-import UpdateButton from 'components/UpdateButton';
 import React, { FC, MouseEventHandler } from 'react';
+
+import { CloseButton, ConfirmButton, DeleteButton, UpdateButton } from 'components';
 import { Container } from './styles';
 
 interface Props {
@@ -30,14 +28,12 @@ const ButtonsContainer: FC<Props> = ({
   onSubmit = () => {},
   isModal = false,
   onDeleteCancel = () => {},
-  onDeleteConfirm = () => {}
+  onDeleteConfirm = () => {},
 }) => {
   return (
     <Container>
       <CloseButton />
-      {pageName === 'needToContirm' && (
-        <ConfirmButton onSubmit={onSubmit} readyToSubmit={readyToSubmit} />
-      )}
+      {pageName === 'needToContirm' && <ConfirmButton onSubmit={onSubmit} readyToSubmit={readyToSubmit} />}
       {pageName === 'needToDelete' && (
         <DeleteButton
           id={id}
@@ -49,12 +45,7 @@ const ButtonsContainer: FC<Props> = ({
       )}
       {pageName === 'needToUpdate' && (
         <>
-          <UpdateButton
-            id={id}
-            text={text}
-            trimedBookId={trimedBookId}
-            onUpdate={onUpdate}
-          />
+          <UpdateButton id={id} text={text} trimedBookId={trimedBookId} onUpdate={onUpdate} />
           <DeleteButton id={id} onClick={onClick} />
         </>
       )}

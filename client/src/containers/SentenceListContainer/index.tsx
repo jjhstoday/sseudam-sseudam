@@ -1,15 +1,14 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { Ul } from './styles';
-import { DELETE_BOOK } from 'graphql/book';
-import { fetcher } from 'queryClient';
 import { useHistory } from 'react-router-dom';
-import Sentence from 'components/Sentence';
-import { GET_SENTENCES } from 'graphql/sentence';
-import MyCount from 'components/MyCount';
-import ButtonsContainer from 'containers/ButtonsContainer';
-import Message from 'components/Message';
+
+import { fetcher } from 'queryClient';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
-import Loading from 'components/Loading';
+import { DELETE_BOOK } from 'graphql/book';
+import { GET_SENTENCES } from 'graphql/sentence';
+
+import { ButtonsContainer } from 'containers';
+import { Sentence, MyCount, Message, Loading } from 'components';
+import { Ul } from './styles';
 
 interface Props {
   bookId: string;
@@ -36,7 +35,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   const getServerSideData = async () => {
     const { sentences: sStcs } = await fetcher(GET_SENTENCES, {
       bookId,
-      cursor: stcs[stcs.length - 1]?.id
+      cursor: stcs[stcs.length - 1]?.id,
     });
     if (sStcs.length === 0) {
       setHasNext(false);
@@ -52,7 +51,7 @@ const SentenceListContainer: FC<Props> = ({ bookId, trimedBookId, title }) => {
   const getStcsLength = async () => {
     const { sentences: sStcs } = await fetcher(GET_SENTENCES, {
       bookId,
-      cursor: 'all'
+      cursor: 'all',
     });
     await setBooksLength(sStcs.length);
     await setTimeout(() => setLoading(true), 50);

@@ -1,10 +1,5 @@
-import React, {
-  ChangeEventHandler,
-  FC,
-  useState,
-  KeyboardEvent,
-  useRef
-} from 'react';
+import React, { ChangeEventHandler, FC, useState, KeyboardEvent, useRef } from 'react';
+
 import { DeleteIcon, Container } from './styles';
 
 interface Props {

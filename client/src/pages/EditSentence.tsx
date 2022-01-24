@@ -1,7 +1,7 @@
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import UpdateSentenceContainer from 'containers/UpdateSentenceContainer';
 import React, { useEffect } from 'react';
+
+import { UpdateSentenceContainer } from 'containers';
+import { AppLayout } from 'components';
 
 export default function EditSentence() {
   useEffect(() => {
@@ -9,12 +9,10 @@ export default function EditSentence() {
   }, []);
 
   return (
-    <>
-      <Header title='책 문장 수정' />
+    <AppLayout title='책 문장 수정'>
       <section>
         <UpdateSentenceContainer />
       </section>
-      <Footer />
-    </>
+    </AppLayout>
   );
 }
